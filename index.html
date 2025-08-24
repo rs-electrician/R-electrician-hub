@@ -507,42 +507,147 @@
   </div>
         </section>
 
-  <!-- ✅ Feedback Section -->
+  <!-- Feedback -->
 <section id="feedback">
   <h2>⭐ Customer Feedback</h2>
-  <p style="text-align:center;">Please rate our service and share your experience</p>
-
-  <!-- Feedback Form -->
   <form id="feedbackForm" style="max-width:600px;margin:auto;text-align:center;">
     <input type="text" id="fbName" placeholder="Your Name" required><br>
-    <textarea id="fbMessage" placeholder="Write your feedback..." required></textarea><br>
-
-    <!-- ⭐ Star Rating -->
-    <div id="starRating" style="font-size:28px;color:gray;cursor:pointer;margin:10px 0;">
-      <span onclick="setRating(1)">★</span>
-      <span onclick="setRating(2)">★</span>
-      <span onclick="setRating(3)">★</span>
-      <span onclick="setRating(4)">★</span>
-      <span onclick="setRating(5)">★</span>
-    </div>
-    <input type="hidden" id="ratingValue" name="rating" required>
-
-    <button type="submit" style="padding:10px 20px;background:#27ae60;color:#fff;border:none;border-radius:5px;cursor:pointer;">
-      Submit Feedback
-    </button>
+    <textarea id="fbMessage" placeholder="Your Feedback" required></textarea><br>
+    <select id="fbRating">
+      <option value="5">⭐ 5</option>
+      <option value="4">⭐ 4</option>
+      <option value="3">⭐ 3</option>
+      <option value="2">⭐ 2</option>
+      <option value="1">⭐ 1</option>
+    </select><br><br>
+    <button type="submit">Submit Feedback</button>
   </form>
-
   <br>
-  <div style="text-align:center;">
-    <button id="toggleReviewsBtn" style="padding:10px 20px;background:#2980b9;color:#fff;border:none;border-radius:5px;cursor:pointer;">
-      Show All Reviews
-    </button>
-  </div>
+  <button id="toggleReviews">📖 Show All Reviews</button>
+  <div id="reviewsList"></div>
+</section>
 
-  <!-- Reviews List -->
-  <div id="reviews" style="max-width:800px;margin:auto;display:none;">
-    <h3>Customer Reviews</h3>
-    <div id="reviewsList"></div>
+  <!-- ✅ Contact Section -->
+<section id="contact">
+  <h2>📞 Contact Us</h2>
+  <div style="max-width:600px;margin:auto;text-align:center;line-height:1.8;">
+    <p><b>📍 Address:</b> Near Main Market, Your City, India</p>
+    <p><b>📞 Phone:</b> <a href="tel:+916389293604">+91 63892 93604</a></p>
+    <p><b>💬 WhatsApp:</b> <a href="https://wa.me/916389293604" target="_blank">Chat on WhatsApp</a></p>
+    <p><b>✉ Email:</b> <a href="mailto:rselectrician@gmail.com">rselectrician@gmail.com</a></p>
   </div>
 </section>
+
+<!-- ✅ Footer -->
+<footer style="background:#222;color:#fff;text-align:center;padding:20px;margin-top:20px;">
+  <p>© 2025 RS Electrician Services. All Rights Reserved.</p>
+  <p>Designed with ⚡ by RS Electrician</p>
+</footer>
+
+  
+<script>
+// Splash close
+setTimeout(()=>{document.getElementById("splash").style.display="none";},1000);
+
+// Navbar toggle
+function toggleMenu(){
+  document.getElementById("navbar").classList.toggle("active");
+}
+// Auto close nav after click
+document.querySelectorAll("#navbar a").forEach(l=>{
+  l.addEventListener("click",()=>{document.getElementById("navbar").classList.remove("active");});
+});
+
+// Booking form email
+document.querySelectorAll(".booking-form").forEach(form=>{
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    const service=this.dataset.service;
+    const name=this.querySelector("input[name='name']").value;
+    const phone=this.querySelector("input[name='phone']").value;
+    const msg=this.querySelector("textarea").value;
+    emailjs.send("service_9hwj82y","template_nr7fqlw",{
+      service:service,customer_name:name,phone:phone,details:msg
+    });
+    alert("✅ "+service+" booked successfully!");
+    this.reset();
+  });
+});
+
+// Feedback system
+const fakeReviews = [
+  {name:"Amit Sharma",rating:5,text:"Very professional service, fan installation was smooth."},
+  {name:"Priya Verma",rating:4,text:"Good work, polite behaviour, satisfied."},
+  {name:"Rakesh Gupta",rating:5,text:"Quick and affordable, wiring done perfectly."},
+  {name:"Sunita Yadav",rating:5,text:"Best electrician service in town, highly recommend."},
+  {name:"Vivek Singh",rating:3,text:"Service was ok, could improve timing."},
+  {name:"Pooja Patel",rating:5,text:"Excellent work, geyser installation done fast."},
+  {name:"Arjun Mehta",rating:4,text:"Polite and knowledgeable staff, fixed my board easily."},
+  {name:"Neha Kapoor",rating:5,text:"Reliable service, came on time and solved issue quickly."},
+  {name:"Sandeep Kumar",rating:4,text:"Good work, price was fair."},
+  {name:"Manoj Jha",rating:5,text:"Best service experience ever, I will book again."},
+  {name:"Deepak Chauhan",rating:5,text:"Fan repair done within 20 minutes, super fast."},
+  {name:"Kiran Mishra",rating:4,text:"Affordable and trustworthy service."},
+  {name:"Rohit Tiwari",rating:5,text:"Hidden wiring completed perfectly."},
+  {name:"Seema Aggarwal",rating:5,text:"Electrician was polite and on time."},
+  {name:"Nikhil Raj",rating:3,text:"Good but took a little longer than expected."},
+  {name:"Alok Pandey",rating:5,text:"Meter installation was neat and clean."},
+  {name:"Ritu Saxena",rating:4,text:"Service was good, price reasonable."},
+  {name:"Harsh Vardhan",rating:5,text:"CCTV installation done perfectly, thanks."},
+  {name:"Shalini Nair",rating:5,text:"Very satisfied, electrician was skilled."},
+  {name:"Mohit Bansal",rating:4,text:"Good work, will recommend to others."},
+  {name:"Ankita Joshi",rating:5,text:"Light fitting was done perfectly."},
+  {name:"Saurabh Dubey",rating:5,text:"Quick service, reliable team."},
+  {name:"Meena Kumari",rating:4,text:"Satisfied with fan repair service."},
+  // ✅ इसी तरह total 50 reviews तक expand करो
+];
+
+// Load reviews
+function renderReviews(){
+  const container=document.getElementById("reviewsList");
+  container.innerHTML="";
+  (JSON.parse(localStorage.getItem("userReviews"))||[]).concat(fakeReviews).forEach(r=>{
+    const div=document.createElement("div");
+    div.className="review";
+    div.innerHTML=`<strong>${r.name}</strong> ⭐ ${"★".repeat(r.rating)}<br><p>${r.text}</p>`;
+    container.appendChild(div);
+  });
+}
+
+// Toggle reviews button
+document.getElementById("toggleReviews").addEventListener("click",()=>{
+  const list=document.getElementById("reviewsList");
+  if(list.style.display==="none"||list.style.display===""){
+    list.style.display="block";renderReviews();
+    document.getElementById("toggleReviews").innerText="❌ Hide Reviews";
+  } else {
+    list.style.display="none";
+    document.getElementById("toggleReviews").innerText="📖 Show All Reviews";
+  }
+});
+
+// Feedback form submit
+document.getElementById("feedbackForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  const name=document.getElementById("fbName").value;
+  const message=document.getElementById("fbMessage").value;
+  const rating=parseInt(document.getElementById("fbRating").value);
+  const userReviews=JSON.parse(localStorage.getItem("userReviews"))||[];
+  userReviews.unshift({name:name,text:message,rating:rating});
+  localStorage.setItem("userReviews",JSON.stringify(userReviews));
+
+  emailjs.send("service_9hwj82y","template_nr7fqlw",{
+    service:"Feedback",
+    customer_name:name,
+    feedback_rating:rating,
+    feedback_message:message
+  });
+
+  alert("✅ Feedback submitted!");
+  this.reset();
+});
+</script>
+</body>
+</html>
+
 
