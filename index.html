@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RS Electrician Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✅ CSS -->
+  <style>
+    body {margin:0;font-family:Arial,sans-serif;background:#fdfdfd;color:#333;}
+    html { scroll-behavior: smooth; }
+    section { padding:40px 20px; scroll-margin-top: 100px; }
+    section h2 { text-align:center;margin-bottom:20px; }
+
+    /* ✅ Splash Screen */
+    #splash {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: yellow;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: black;
+      height: 100vh;
+      width: 100vw;
+      z-index: 2000;
+      text-align: center;
+    }
+
+    /* ✅ Header */
+    header {
+      position: sticky;top:0;
+      background: yellow;
+      color:#000;display:flex;align-items:center;justify-content:space-between;
+      padding:15px 20px;z-index:1000;flex-wrap: wrap;
+    }
+    header img.logo {height:60px;}
+    .cta {display:flex;gap:10px;}
+    .cta a {padding:8px 14px;border-radius:6px;text-decoration:none;font-weight:bold;}
+    .call-btn {background:#27ae60;color:#fff;}
+    .wa-btn {background:#25d366;color:#fff;}
+    nav {display:flex;gap:15px;}
+    nav a {text-decoration:none;font-weight:bold;color:#000;}
+    .menu-icon {display:none;font-size:28px;cursor:pointer;}
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        display:none;flex-direction:column;width:100%;
+        background: #ffeb3b;text-align:center;margin-top:10px;
+      }
+      nav.active {display:flex;}
+      .menu-icon {display:block;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ✅ Splash Screen -->
+<div id="splash">⚡ Welcome to RS Electrician ⚡</div>
+
+<!-- ✅ Header -->
+<header>
+  <img src="https://i.ibb.co/zVtTNrxm/file-00000000868861f6988cbd611b3b56d4-Photoroom.png" class="logo" alt="RS Electrician Logo">
+
+  <div class="cta">
+    <a class="call-btn" href="tel:+916389293604">📞 Call</a>
+    <a class="wa-btn" href="https://wa.me/916389293604" target="_blank">💬 WhatsApp</a>
+  </div>
+
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <nav id="navbar">
+    <a href="#home">🏠 Home</a>
+    <a href="#home-services">🔌 Home Services</a>
+    <a href="#commercial">🏢 Commercial</a>
+    <a href="#industrial">🏭 Industrial</a>
+    <a href="#other">⚡ Other</a>
+    <a href="#feedback">⭐ Feedback</a>
+    <a href="#contact">📞 Contact</a>
+  </nav>
+</header>
+
+<!-- ✅ Home Section -->
+<section id="home">
+  <h2>🏠 Welcome to RS Electrician</h2>
+  <p style="max-width:800px;margin:auto;font-size:18px;line-height:1.6;text-align:center;">
+    We provide <b>professional and affordable electrical services</b> for homes, shops, offices, factories, and more.  
+    From simple fan & light installations to heavy industrial wiring, our trained technicians ensure safety, reliability, and quick service at your doorstep.  
+    <br><br>
+    हम आपके घर, दुकान, ऑफिस और फैक्ट्री के लिए <b>सुरक्षित और किफायती बिजली सेवाएँ</b> प्रदान करते हैं।  
+    चाहे काम छोटा हो या बड़ा – जैसे फैन, लाइट लगाना, स्विच बोर्ड रिपेयर, मीटर या वायरिंग – हमारी टीम आपको समय पर और भरोसेमंद सेवा उपलब्ध कराएगी।  
+  </p>
+</section>
+
+<script>
+  // ✅ Splash screen hide after 1 second
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("splash").style.display = "none";
+    }, 1000);
+  });
+
+  // ✅ Mobile menu toggle
+  function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("active");
+  }
+      </script>
