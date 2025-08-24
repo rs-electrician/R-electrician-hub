@@ -105,32 +105,82 @@
   </p>
 </section>
 
-  document.addEventListener("DOMContentLoaded", () => {
-‎    document.querySelectorAll(".booking-form").forEach(form => {
-‎      form.addEventListener("submit", function(e) {
-‎        e.preventDefault();
+  ‎<script>
+‎  // ✅ Splash screen hide after 1 second
+‎  window.addEventListener("load", () => {
+‎    setTimeout(() => {
+‎      document.getElementById("splash").style.display = "none";
+‎    }, 1000);
+‎  });
 ‎
-‎        const serviceName = this.getAttribute("data-service");
-‎        const name = this.querySelector("input[name='name']").value;
-‎        const phone = this.querySelector("input[name='phone']").value;
-‎        const message = this.querySelector("textarea[name='message']").value;
-‎
-‎        emailjs.send("service_9hwj82y", "template_nr7fqlw", {
-‎          service: serviceName,
-‎          customer_name: name,
-‎          phone: phone,
-‎          details: message
-‎        }).then(response => {
-‎          showPopup("✅ " + serviceName + " booked successfully!", "success");
-‎          this.reset();
-‎        }, error => {
-‎          showPopup("❌ Something went wrong. Try again.", "error");
-‎        });
-‎      });
-‎    });
-‎  });
+‎  // ✅ Mobile menu toggle
+‎  function toggleMenu() {
+‎    document.getElementById("navbar").classList.toggle("active");
+‎  }
 ‎</script>
 ‎
+‎<!-- ✅ EmailJS Library -->
+‎<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+‎<script>
+‎  (function(){
+‎    emailjs.init("AbPYwca1GMdNjZRsO"); // Public Key
+‎  })();
+‎</script>
+‎
+‎<style>
+‎  .service {
+‎    border:1px solid #ccc;margin:15px 0;padding:15px;
+‎    border-radius:8px;background:#fff;max-width:600px;margin-left:auto;margin-right:auto;
+‎  }
+‎  .service img {width:100%;max-height:250px;object-fit:cover;border-radius:8px;}
+‎  .service h3 {margin:10px 0;color:#2980b9;}
+‎  .service .price {font-weight:bold;color:#c0392b;text-align:center;margin-bottom:10px;}
+‎  form {margin-top:10px;display:flex;flex-direction:column;gap:8px;}
+‎  input,textarea,button {padding:8px;border:1px solid #ccc;border-radius:5px;}
+‎  button {background:#e74c3c;color:#fff;font-weight:bold;cursor:pointer;}
+‎</style>
+‎
+‎<!-- ✅ Popup Notification -->
+‎<div id="popup" style="
+‎  display:none; position:fixed; top:20px; left:50%; transform:translateX(-50%);
+‎  padding:15px 25px; border-radius:6px; color:#fff; font-weight:bold;
+‎  z-index:3000; text-align:center; box-shadow:0 3px 8px rgba(0,0,0,0.3);
+‎"></div>
+‎
+‎<script>
+‎  function showPopup(message, type) {
+‎    const popup = document.getElementById("popup");
+‎    popup.innerText = message;
+‎    popup.style.background = type === "success" ? "#27ae60" : "#e74c3c";
+‎    popup.style.display = "block";
+‎    setTimeout(() => popup.style.display = "none", 4000);
+‎  }
+‎
+‎  document.addEventListener("DOMContentLoaded", () => {
+‎    document.querySelectorAll(".booking-form").forEach(form => {
+‎      form.addEventListener("submit", function(e) {
+‎        e.preventDefault();
+‎
+‎        const serviceName = this.getAttribute("data-service");
+‎        const name = this.querySelector("input[name='name']").value;
+‎        const phone = this.querySelector("input[name='phone']").value;
+‎        const message = this.querySelector("textarea[name='message']").value;
+‎
+‎        emailjs.send("service_9hwj82y", "template_nr7fqlw", {
+‎          service: serviceName,
+‎          customer_name: name,
+‎          phone: phone,
+‎          details: message
+‎        }).then(response => {
+‎          showPopup("✅ " + serviceName + " booked successfully!", "success");
+‎          this.reset();
+‎        }, error => {
+‎          showPopup("❌ Something went wrong. Try again.", "error");
+‎        });
+‎      });
+‎    });
+‎  });
+‎</script>
   
 <!-- 🏠 Home Services -->
 <section id="home-services">
