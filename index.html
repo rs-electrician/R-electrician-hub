@@ -423,60 +423,221 @@
   </div>
 </section>
 
-<!-- ✅ Feedback Section -->
+<!-- ⭐ Feedback Section -->
 <section id="feedback">
   <h2>⭐ Customer Feedback</h2>
-  <p style="text-align:center;">Please rate our service and share your experience</p>
-
-  <!-- Feedback Form -->
-  <form id="feedbackForm" style="max-width:600px;margin:auto;text-align:center;">
-    <input type="text" id="fbName" placeholder="Your Name" required><br>
-    <textarea id="fbMessage" placeholder="Write your feedback..." required></textarea><br>
-
+  <form id="feedbackForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <textarea name="message" placeholder="Write your feedback..." required></textarea>
+    
     <!-- ⭐ Star Rating -->
-    <div id="starRating" style="font-size:28px;color:gray;cursor:pointer;margin:10px 0;">
+    <div id="starRating" style="font-size:28px; cursor:pointer; margin-bottom:10px;">
       <span onclick="setRating(1)">★</span>
       <span onclick="setRating(2)">★</span>
       <span onclick="setRating(3)">★</span>
       <span onclick="setRating(4)">★</span>
       <span onclick="setRating(5)">★</span>
     </div>
-    <input type="hidden" id="ratingValue" name="rating" required>
-
-    <button type="submit" style="padding:10px 20px;background:#27ae60;color:#fff;border:none;border-radius:5px;cursor:pointer;">
-      Submit Feedback
-    </button>
+    <input type="hidden" id="ratingValue" name="rating" value="0">
+    <button type="submit">📩 Submit Feedback</button>
   </form>
 
-  <br>
-  <div style="text-align:center;">
-    <button id="toggleReviewsBtn" style="padding:10px 20px;background:#2980b9;color:#fff;border:none;border-radius:5px;cursor:pointer;">
-      Show All Reviews
-    </button>
-  </div>
-  
-  <!-- ✅ Contact Section -->
+  <button id="toggleReviews">👀 Show All Reviews</button>
+  <div id="reviewsList"></div>
+</section>
+
+<!-- 📞 Contact -->
 <section id="contact">
   <h2>📞 Contact Us</h2>
-  <div style="max-width:600px;margin:auto;text-align:center;line-height:1.8;">
-    <p><b>📍 Address:</b> Near Main Market, Your City, India</p>
-    <p><b>📞 Phone:</b> <a href="tel:+916389293604">+91 63892 93604</a></p>
-    <p><b>💬 WhatsApp:</b> <a href="https://wa.me/916389293604" target="_blank">Chat on WhatsApp</a></p>
-    <p><b>✉ Email:</b> <a href="mailto:rselectrician@gmail.com">rselectrician@gmail.com</a></p>
-  </div>
+  <p style="text-align:center;">Call us at <b>+91 6389293604</b> or WhatsApp for instant support.</p>
 </section>
 
-<!-- ✅ Footer -->
-<footer style="background:#222;color:#fff;text-align:center;padding:20px;margin-top:20px;">
-  <p>© 2025 RS Electrician Services. All Rights Reserved.</p>
-  <p>Designed with ⚡ by RS Electrician</p>
+<!-- ⚡ Footer -->
+<footer style="background:#222;color:#fff;text-align:center;padding:20px;">
+  <p>© 2025 RS Electrician Services | All Rights Reserved</p>
 </footer>
 
-  !-- Reviews List -->
-  <div id="reviews" style="max-width:800px;margin:auto;display:none;">
-    <h3>Customer Reviews</h3>
-    <div id="reviewsList"></div>
-  </div>
-</section>
+<!-- ✅ Scripts -->
+<script>
+  // Splash hide after 1 sec
+  window.addEventListener("load", () => {
+    setTimeout(() => { document.getElementById("splash").style.display = "none"; }, 1000);
+  });
 
-  
+  // Mobile menu toggle + auto-close
+  function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("active");
+  }
+  document.querySelectorAll("#navbar a").forEach(link=>{
+    link.addEventListener("click", ()=>document.getElementById("navbar").classList.remove("active"));
+  });
+
+  // ⭐ Rating
+  let selectedRating = 0;
+  function setRating(rating) {
+    selectedRating = rating;
+    const stars = document.querySelectorAll("#starRating span");
+    stars.forEach((star, index) => {
+      star.style.color = index < rating ? "gold" : "gray";
+    });
+    document.getElementById("ratingValue").value = rating;
+  }
+
+  // Booking Form
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".booking-form").forEach(form => {
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const serviceName = this.getAttribute("data-service");
+        const name = this.querySelector("input[name='name']").value;
+        const phone = this.querySelector("input[name='phone']").value;
+        const message = this.querySelector("textarea[name='message']").value;
+
+        emailjs.send("service_9hwj82y", "template_nr7fqlw", {
+          service: serviceName,
+          customer_name: name,
+          phone: phone,
+          details: message
+        }).then(() => {
+          alert("✅ " + serviceName + " booked successfully!");
+          this.reset();
+        }, () => {
+          alert("❌ Something went wrong. Try again.");
+        });
+      });
+    });
+  });
+
+  <script>
+  // ------------------ Fake Reviews Data ------------------
+  const fakeReviews = [
+    {name:"Amit Sharma", rating:5, text:"Very professional service, fan installation was smooth."},
+    {name:"Priya Verma", rating:4, text:"Good work, polite behaviour, satisfied."},
+    {name:"Rakesh Gupta", rating:5, text:"Quick and affordable, wiring done perfectly."},
+    {name:"Sunita Yadav", rating:5, text:"Best electrician service in town, highly recommend."},
+    {name:"Vivek Singh", rating:3, text:"Service was ok, could improve timing."},
+    {name:"Pooja Patel", rating:5, text:"Excellent work, geyser installation done fast."},
+    {name:"Arjun Mehta", rating:4, text:"Polite and knowledgeable staff, fixed my board easily."},
+    {name:"Neha Kapoor", rating:5, text:"Reliable service, came on time and solved issue quickly."},
+    {name:"Sandeep Kumar", rating:4, text:"Good work, price was fair."},
+    {name:"Manoj Jha", rating:5, text:"Best service experience ever, I will book again."},
+    {name:"Deepak Chauhan", rating:5, text:"Fan repair done within 20 minutes, super fast."},
+    {name:"Kiran Mishra", rating:4, text:"Affordable and trustworthy service."},
+    {name:"Rohit Tiwari", rating:5, text:"Hidden wiring completed perfectly."},
+    {name:"Seema Aggarwal", rating:5, text:"Electrician was polite and on time."},
+    {name:"Nikhil Raj", rating:3, text:"Good but took a little longer than expected."},
+    {name:"Alok Pandey", rating:5, text:"Meter installation was neat and clean."},
+    {name:"Ritu Saxena", rating:4, text:"Service was good, price reasonable."},
+    {name:"Harsh Vardhan", rating:5, text:"CCTV installation done perfectly, thanks."},
+    {name:"Shalini Nair", rating:5, text:"Very satisfied, electrician was skilled."},
+    {name:"Mohit Bansal", rating:4, text:"Good work, will recommend to others."},
+    {name:"Ankita Joshi", rating:5, text:"Light fitting was done perfectly."},
+    {name:"Saurabh Dubey", rating:5, text:"Quick service, reliable team."},
+    {name:"Meena Kumari", rating:4, text:"Satisfied with fan repair service."},
+    {name:"Ashok Yadav", rating:5, text:"Geyser repair was quick and affordable."},
+    {name:"Komal Singh", rating:4, text:"Good work, electrician was polite."},
+    {name:"Rajesh Kumar", rating:5, text:"Switchboard fitting done perfectly."},
+    {name:"Pinki Sharma", rating:5, text:"Best experience ever, very professional team."},
+    {name:"Ajay Rawat", rating:3, text:"Service was okay but came late."},
+    {name:"Preeti Sinha", rating:5, text:"Wiring work done very neatly."},
+    {name:"Gaurav Jain", rating:4, text:"Satisfied with the service overall."},
+    {name:"Megha Rani", rating:5, text:"Fast and reliable service, thank you!"},  
+    {name:"Tarun Gupta", rating:5, text:"Excellent, I will recommend to everyone."},
+    {name:"Sonia Kapoor", rating:4, text:"Good but could improve timing."},
+    {name:"Rajiv Malhotra", rating:5, text:"Professional team and clean work."},
+    {name:"Anita Kumari", rating:5, text:"Fan and tube light fitting done in no time."},
+    {name:"Kapil Sharma", rating:5, text:"Very happy with generator wiring service."},
+    {name:"Sonia Rathi", rating:4, text:"Good service, rates are affordable."},
+    {name:"Naveen Kumar", rating:5, text:"Meter work done with full safety."},
+    {name:"Asha Singh", rating:5, text:"Electrician was humble and quick."},
+    {name:"Ravi Shankar", rating:4, text:"Work was good but price a little high."},
+    {name:"Divya Tiwari", rating:5, text:"Best electrician in my area."},
+    {name:"Suraj Mishra", rating:5, text:"Highly satisfied, will call again."},
+    {name:"Kajal Gupta", rating:4, text:"Affordable and professional work."},
+    {name:"Vikas Sharma", rating:5, text:"Outstanding service for AC connection."},
+    {name:"Monika Yadav", rating:5, text:"Quick work, very professional staff."},
+    {name:"Yogesh Patel", rating:4, text:"Good electrician, reasonable charges."},
+    {name:"Savita Devi", rating:5, text:"Wiring and meter work done perfectly."},
+    {name:"Jatin Arora", rating:5, text:"Best electrician experience ever."}
+  ];
+  // ------------------ Load Fake + Saved Reviews ------------------
+  function loadReviews() {
+    let savedReviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    // अगर पहली बार load हो रहा है तो fake reviews डाल दो
+    if (savedReviews.length === 0) {
+      savedReviews = fakeReviews;
+      localStorage.setItem("reviews", JSON.stringify(savedReviews));
+    }
+
+    document.getElementById("reviewsList").innerHTML = "";
+    savedReviews.forEach(r => addReview(r.name, r.text, r.rating, false));
+  }
+
+  // Review add + save
+  function addReview(name, message, rating, save = true) {
+    const div = document.createElement("div");
+    div.classList.add("review");
+
+    // ⭐ Golden Stars
+    let stars = "";
+    for (let i = 0; i < 5; i++) {
+      stars += i < rating ? "★" : "☆";
+    }
+
+    div.innerHTML = `<strong>${name}</strong> (${stars})<br>${message}`;
+    document.getElementById("reviewsList").prepend(div);
+
+    if (save) {
+      let saved = JSON.parse(localStorage.getItem("reviews")) || [];
+      saved.unshift({name, text: message, rating});
+      localStorage.setItem("reviews", JSON.stringify(saved));
+    }
+  }
+
+  // Page load पर reviews दिखाओ
+  document.addEventListener("DOMContentLoaded", loadReviews);
+</script>
+
+  // Feedback Form
+  document.getElementById("feedbackForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = this.querySelector("input[name='name']").value;
+    const message = this.querySelector("textarea[name='message']").value;
+    const rating = document.getElementById("ratingValue").value;
+
+    emailjs.send("service_9hwj82y","template_nr7fqlw",{
+      customer_name:name,
+      feedback_message:message,
+      feedback_rating:rating
+    }).then(()=>{
+      alert("⭐ Thanks for your feedback!");
+      addReview(name,message,rating);
+      this.reset();
+    },()=>{ alert("❌ Feedback send failed."); });
+  });
+
+  // Show/hide reviews
+  document.getElementById("toggleReviews").addEventListener("click", function(){
+    const reviews = document.getElementById("reviewsList");
+    if(reviews.style.display==="none"||reviews.style.display===""){
+      reviews.style.display="block";
+      this.innerText="❌ Hide Reviews";
+    } else {
+      reviews.style.display="none";
+      this.innerText="👀 Show All Reviews";
+    }
+  });
+
+  // Add reviews dynamically
+  function addReview(name,message,rating){
+    const div=document.createElement("div");
+    div.classList.add("review");
+    div.innerHTML=`<strong>${name}</strong> (${rating}⭐)<br>${message}`;
+    document.getElementById("reviewsList").prepend(div);
+  }
+</script>
+</body>
+</html>
+
+
