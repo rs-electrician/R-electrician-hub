@@ -202,6 +202,7 @@
   </div>
 </section>
 
+<!-- ✅ Feedback Section -->
 <section id="feedback">
   <h2>⭐ Customer Feedback</h2>
   <form id="feedbackForm">
@@ -230,8 +231,7 @@
      style="display:none; position:fixed; top:20px; right:20px; background:#27ae60; color:white; padding:15px 20px; border-radius:10px; font-weight:bold; box-shadow:0 4px 8px rgba(0,0,0,0.3); z-index:9999;">
 </div>
 
-<!-- ✅ EmailJS Library -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<!-- ✅ Feedback Script -->
 <script>
   (function(){
     emailjs.init("AbPYwca1GMdNjZRsO"); // 👉 आपका EmailJS public key
@@ -304,39 +304,7 @@
       showNotification("❌ Feedback send failed.", false);
     });
   });
+</script>
 
-  /* ⭐ Default Reviews List */
-  const defaultReviews = [
-    {name:"Amit Sharma", rating:5, text:"Very professional service, fan installation was smooth."},
-    {name:"Priya Verma", rating:4, text:"Good work, polite behaviour, satisfied."},
-    {name:"Rakesh Gupta", rating:5, text:"Quick and affordable, wiring done perfectly."},
-    {name:"Sunita Yadav", rating:5, text:"Best electrician service in town, highly recommend."},
-    {name:"Vivek Singh", rating:3, text:"Service was ok, could improve timing."},
-    {name:"Pooja Patel", rating:5, text:"Excellent work, geyser installation done fast."},
-    {name:"Arjun Mehta", rating:4, text:"Polite and knowledgeable staff, fixed my board easily."},
-    {name:"Neha Kapoor", rating:5, text:"Reliable service, came on time and solved issue quickly."},
-    {name:"Sandeep Kumar", rating:4, text:"Good work, price was fair."},
-    {name:"Manoj Jha", rating:5, text:"Best service experience ever, I will book again."},
-    {name:"Deepak Chauhan", rating:5, text:"Fan repair done within 20 minutes, super fast."},
-    {name:"Kiran Mishra", rating:4, text:"Affordable and trustworthy service."},
-    {name:"Rohit Tiwari", rating:5, text:"Hidden wiring completed perfectly."},
-    {name:"Seema Aggarwal", rating:5, text:"Electrician was polite and on time."},
-    {name:"Nikhil Raj", rating:3, text:"Good but took a little longer than expected."},
-    {name:"Alok Pandey", rating:5, text:"Meter installation was neat and clean."},
-    {name:"Ritu Saxena", rating:4, text:"Service was good, price reasonable."},
-    {name:"Harsh Vardhan", rating:5, text:"CCTV installation done perfectly, thanks."},
-    {name:"Shalini Nair", rating:5, text:"Very satisfied, electrician was skilled."},
-    {name:"Mohit Bansal", rating:4, text:"Good work, will recommend to others."},
-    {name:"Ankita Joshi", rating:5, text:"Light fitting was done perfectly."},
-    {name:"Saurabh Dubey", rating:5, text:"Quick service, reliable team."},
-    {name:"Meena Kumari", rating:4, text:"Satisfied with fan repair service."}
-  ];
-
-  window.onload = () => {
-    defaultReviews.forEach(r => addReview(r.name, r.text, r.rating));
-  };
-  </script>
-
-  </body>
+</body>
 </html>
-
