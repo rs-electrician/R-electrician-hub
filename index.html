@@ -322,5 +322,15 @@ fakeReviews.forEach(r=> addReview(r.name,r.message,r.rating));
   <p>🔌 Fast • Affordable • Reliable</p>
   </footer>
 
+  <!-- ⏱ Splash Screen -->
+<script>
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    let splash = document.getElementById("splash");
+    if (splash) splash.style.display = "none";
+  }, 500);
+});
+</script>
+
   </body>
 </html>
