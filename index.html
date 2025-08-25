@@ -224,6 +224,15 @@
 
   <div id="reviews"></div>
 </section>
+  <div id="reviews"></div>
+</section>
+
+<!-- 👁 Show / Hide Reviews Button -->
+<div style="text-align:center; margin:20px 0;">
+  <button onclick="toggleReviews()" style="padding:10px 15px; font-weight:bold; background:#2980b9; color:white; border:none; border-radius:5px; cursor:pointer;">
+    👁 Show / Hide Reviews
+  </button>
+</div>
 
 <!-- 📞 Contact Section -->
 <section id="contact">
@@ -290,6 +299,16 @@ document.getElementById("feedbackForm").addEventListener("submit",function(e){
   },()=>{ alert("❌ Feedback send failed."); });
 });
 
+  /* 👁 Show / Hide Reviews Function */
+function toggleReviews() {
+  const reviewsDiv = document.getElementById("reviews");
+  if (reviewsDiv.style.display === "none" || reviewsDiv.style.display === "") {
+    reviewsDiv.style.display = "block";
+  } else {
+    reviewsDiv.style.display = "none";
+  }
+  }
+  
 /* ⭐ Fake + Real Reviews */
 const fakeReviews=[
   {name:"Amit Sharma",message:"Great service! Fan installation was quick.",rating:5},
@@ -315,6 +334,12 @@ function addReview(name,message,rating){
 /* Load fake reviews */
 fakeReviews.forEach(r=> addReview(r.name,r.message,r.rating));
 </script>
+
+  <!-- 🌐 Footer Section -->
+<footer style="background:#2c3e50; color:white; text-align:center; padding:15px 10px; margin-top:20px;">
+  <p>© 2025 RS Electrician Services. All Rights Reserved.</p>
+  <p>🔌 Fast • Affordable • Reliable</p>
+</footer>
 
 </body>
 </html>
