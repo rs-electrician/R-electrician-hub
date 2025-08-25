@@ -233,6 +233,7 @@ q<!DOCTYPE html>
   <div id="reviews" style="display:none;"></div>
 </section>
 
+
 <!-- 📞 Contact Section -->
 <section id="contact">
   <h2>📞 Contact Us</h2>
@@ -243,15 +244,53 @@ q<!DOCTYPE html>
   </p>
 </section>
 
-<!-- ✅ JavaScript -->
+<!-- 🌐 Footer Section -->
+<footer style="background:#2c3e50; color:white; text-align:center; padding:15px 10px; margin-top:20px;">
+  <p>© 2025 RS Electrician Services. All Rights Reserved.</p>
+  <p>🔌 Fast • Affordable • Reliable</p>
+</footer>
+
+<!-- ✅ Scripts (Always last me rakho) -->
 <script>
-/* ⭐ Star Rating Selection */
+/* ⏱ Splash Screen (0.5 sec fix) */
+window.addEventListener("load", function(){
+  setTimeout(function(){
+    var splash = document.getElementById("splash");
+    if(splash){
+      splash.style.display = "none";
+    }
+  }, 500); 
+});
+
+/* 📱 Toggle Menu */
+function toggleMenu(){ document.getElementById("navbar").classList.toggle("active"); }
+document.querySelectorAll("#navbar a").forEach(a=>{
+  a.addEventListener("click", ()=> document.getElementById("navbar").classList.remove("active"));
+});
+
+/* 📧 Booking Form */
+document.querySelectorAll(".booking-form").forEach(form=>{
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    const serviceName=this.getAttribute("data-service");
+    const name=this.querySelector("input[name='name']").value;
+    const phone=this.querySelector("input[name='phone']").value;
+    const message=this.querySelector("textarea[name='message']").value;
+
+    emailjs.send("service_9hwj82y","template_nr7fqlw",{
+      service:serviceName,customer_name:name,phone:phone,details:message
+    }).then(()=>{ alert("✅ "+serviceName+" booked successfully!"); this.reset(); },
+             ()=>{ alert("❌ Something went wrong. Try again."); });
+  });
+});
+
+/* ⭐ Star Rating */
 document.querySelectorAll("#starRating span").forEach(star=>{
   star.addEventListener("click",function(){
     const rating=this.getAttribute("data-value");
     document.getElementById("ratingValue").value=rating;
-    document.querySelectorAll("#starRating span").forEach(s=>s.style.color="#000"); 
-    this.style.color="gold"; // highlight selected row
+    document.querySelectorAll("#starRating span").forEach(s=>s.style.color="#ccc");
+    for(let i=0;i<rating;i++){ document.querySelectorAll("#starRating span")[i].style.color="gold"; }
   });
 });
 
@@ -264,20 +303,18 @@ document.getElementById("feedbackForm").addEventListener("submit",function(e){
 
   if(rating == 0){ alert("⚠️ Please select a star rating before submitting!"); return; }
 
-  // 📧 Send feedback to Gmail via EmailJS
   emailjs.send("service_9hwj82y","template_nr7fqlw",{
-    customer_name:name,
-    feedback_message:message,
-    feedback_rating:rating
+    customer_name:name,feedback_message:message,feedback_rating:rating
   }).then(()=>{
     alert("⭐ Thanks for your feedback!");
     addReview(name,message,rating);
     this.reset();
     document.getElementById("ratingValue").value=0;
+    document.querySelectorAll("#starRating span").forEach(s=>s.style.color="#ccc");
   },()=>{ alert("❌ Feedback send failed."); });
 });
 
-/* 👁 Show / Hide Reviews */
+/* 👁 View All Reviews */
 function toggleReviews() {
   const reviewsDiv = document.getElementById("reviews");
   if (reviewsDiv.style.display === "none" || reviewsDiv.style.display === "") {
@@ -289,47 +326,31 @@ function toggleReviews() {
 
 /* ⭐ Fake + Real Reviews */
 const fakeReviews=[
-  {name:"Amit Sharma",message:"Fan installation was quick & neat.",rating:5},
-  {name:"Priya Verma",message:"Polite and professional service.",rating:4},
-  {name:"Ravi Kumar",message:"Switch board repaired perfectly.",rating:5},
-  {name:"Neha Singh",message:"Affordable and reliable work.",rating:4},
-  {name:"Arjun Mehta",message:"Geyser installation on time.",rating:5},
-  {name:"Kiran Patel",message:"Good service but a bit late.",rating:3},
-  {name:"Suresh Yadav",message:"Excellent wiring work!",rating:5},
-  {name:"Sunita Mishra",message:"Quick bulb fitting, thanks!",rating:4},
-  {name:"Rahul Jain",message:"Emergency visit saved my day.",rating:5},
-  {name:"Priya Gupta",message:"Satisfied with inverter connection.",rating:5},
-  // 👉 इसी तरह total 50 reviews रख सकते हो
+  {name:"Amit Sharma",message:"Great service! Fan installation was quick.",rating:5},
+  {name:"Pooja Verma",message:"Electrician was polite and professional.",rating:5},
+  {name:"Ravi Kumar",message:"Switch board repaired perfectly.",rating:4},
+  {name:"Neha Singh",message:"Affordable and reliable work.",rating:5},
+  {name:"Arjun Mehta",message:"Geyser installation done on time.",rating:5},
+  {name:"Kiran Patel",message:"Good service but a bit late.",rating:4},
+  {name:"Suresh Yadav",message:"Very professional wiring work.",rating:5},
+  {name:"Sunita Mishra",message:"Quick bulb fitting, thanks!",rating:5},
+  {name:"Rahul Jain",message:"Emergency visit helped a lot.",rating:5},
+  {name:"Priya Gupta",message:"Satisfied with inverter connection.",rating:4}
+  // 👉 बाकी reviews भी इसी format me add kar lena
 ];
 
-/* Add Review Function */
 function addReview(name,message,rating){
   const reviewDiv=document.createElement("div");
   reviewDiv.classList.add("review");
   let stars="";
-  for(let i=0;i<5;i++){ stars+= i<rating ? "<span style='color:gold'>⭐</span>" : "<span>⭐</span>"; }
-  reviewDiv.innerHTML=`<strong>${name}</strong> <div>${stars}</div><p>${message}</p>`;
+  for(let i=0;i<5;i++){ stars+= i<rating?"<span class='active'>⭐</span>":"<span>⭐</span>"; }
+  reviewDiv.innerHTML=`<strong>${name}</strong> <div class="stars">${stars}</div><p>${message}</p>`;
   document.getElementById("reviews").prepend(reviewDiv);
 }
 
-/* Load Fake Reviews */
+/* Load fake reviews */
 fakeReviews.forEach(r=> addReview(r.name,r.message,r.rating));
 </script>
 
-  <script>
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    let splash = document.getElementById("splash");
-    if (splash) splash.style.display = "none";
-  }, 500);
-});
-  </script>
-  
-<!-- 🌐 Footer Section -->
-<footer style="background:#2c3e50; color:white; text-align:center; padding:15px 10px; margin-top:20px;">
-  <p>© 2025 RS Electrician Services. All Rights Reserved.</p>
-  <p>🔌 Fast • Affordable • Reliable</p>
-  </footer>
-
-  </body>
+</body>
 </html>
