@@ -306,5 +306,23 @@
   });
 </script>
 
+  <script>
+  // Splash Screen Hide
+  window.addEventListener("load", () => {
+    const splash = document.getElementById("splash");
+    splash.style.transition = "opacity 1s ease";
+    splash.style.opacity = 0;
+
+    setTimeout(() => {
+      splash.style.display = "none";
+    }, 1000); // 1 sec fade out
+  });
+
+  // Mobile Menu Toggle
+  function toggleMenu(){
+    document.getElementById("navbar").classList.toggle("active");
+  }
+  </script>
+
 </body>
 </html>
