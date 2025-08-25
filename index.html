@@ -54,6 +54,13 @@
     #splash{position:fixed;top:0;left:0;right:0;bottom:0;background:yellow;
       display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:bold;
       color:black;height:100vh;width:100vw;z-index:2000;text-align:center;}
+
+    /* Feedback */
+    #reviews {max-width:800px;margin:auto;}
+    .review {border-bottom:1px solid #ddd;padding:10px 0;}
+    .review strong {color:#2980b9;}
+    .stars {color:#ccc;}
+    .stars .active {color:gold;}
   </style>
 
   <!-- EmailJS -->
@@ -97,286 +104,61 @@
     Book your service online or call us for emergency support anytime!
   </p>
 </section>
-  
+
 <!-- 🏠 Home Services -->
 <section id="home-services">
   <h2>🏠 Home Services</h2>
-  <div class="service">
-    <h3>Ceiling Fan Installation – ₹300</h3>
-    <img src="https://i.ibb.co/r2WhpWC5/f34d5de105f7a414f44320327480dab4.jpg">
-    <div class="price">₹300</div>
-    <form class="booking-form" data-service="Ceiling Fan Installation">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Tube Light / Bulb Fitting – ₹200</h3>
-    <img src="https://i.ibb.co/bRC1DM9P/45d49449d6619c3a5a00ef07a3b3745d.jpg">
-    <div class="price">₹200</div>
-    <form class="booking-form" data-service="Tube Light / Bulb Fitting">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Switch Board Repair – ₹250</h3>
-    <img src="https://i.ibb.co/mF2m5TLs/1ee66e61ec9c2948e8169444801fe4af.jpg">
-    <div class="price">₹250</div>
-    <form class="booking-form" data-service="Switch Board Repair">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Geyser Installation – ₹600</h3>
-    <img src="https://i.ibb.co/pCGqdWh/8063f8af8395945dc6331a8bc6171f95.jpg">
-    <div class="price">₹600</div>
-    <form class="booking-form" data-service="Geyser Installation">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Inverter + Battery Connection – ₹500</h3>
-    <img src="https://i.ibb.co/nqgnzqR3/c9508d265077d28f2b178a64dab0a1b4.jpg">
-    <div class="price">₹500</div>
-    <form class="booking-form" data-service="Inverter + Battery Connection">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>House Casing Caping Wiring – ₹1500</h3>
-    <img src="https://i.ibb.co/j09CFqk/d26077ec813e7f9d9a086a5958e52e0e.jpg">
-    <div class="price">₹1500</div>
-    <form class="booking-form" data-service="House Casing Caping Wiring">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>House Hidden Wiring – ₹2000</h3>
-    <img src="https://i.ibb.co/hJsWvPh9/ef07b5effc723c2841479ebc2037d69b.jpg">
-    <div class="price">₹2000</div>
-    <form class="booking-form" data-service="House Hidden Wiring">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
+  <div class="service"><h3>Ceiling Fan Installation – ₹300</h3><img src="https://i.ibb.co/r2WhpWC5/f34d5de105f7a414f44320327480dab4.jpg"><div class="price">₹300</div>
+    <form class="booking-form" data-service="Ceiling Fan Installation"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>Tube Light / Bulb Fitting – ₹200</h3><img src="https://i.ibb.co/bRC1DM9P/45d49449d6619c3a5a00ef07a3b3745d.jpg"><div class="price">₹200</div>
+    <form class="booking-form" data-service="Tube Light / Bulb Fitting"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>Switch Board Repair – ₹250</h3><img src="https://i.ibb.co/mF2m5TLs/1ee66e61ec9c2948e8169444801fe4af.jpg"><div class="price">₹250</div>
+    <form class="booking-form" data-service="Switch Board Repair"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>Geyser Installation – ₹600</h3><img src="https://i.ibb.co/pCGqdWh/8063f8af8395945dc6331a8bc6171f95.jpg"><div class="price">₹600</div>
+    <form class="booking-form" data-service="Geyser Installation"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>Inverter + Battery Connection – ₹500</h3><img src="https://i.ibb.co/nqgnzqR3/c9508d265077d28f2b178a64dab0a1b4.jpg"><div class="price">₹500</div>
+    <form class="booking-form" data-service="Inverter + Battery Connection"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>House Casing Caping Wiring – ₹1500</h3><img src="https://i.ibb.co/j09CFqk/d26077ec813e7f9d9a086a5958e52e0e.jpg"><div class="price">₹1500</div>
+    <form class="booking-form" data-service="House Casing Caping Wiring"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>House Hidden Wiring – ₹2000</h3><img src="https://i.ibb.co/hJsWvPh9/ef07b5effc723c2841479ebc2037d69b.jpg"><div class="price">₹2000</div>
+    <form class="booking-form" data-service="House Hidden Wiring"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
 </section>
 
 <!-- 🏢 Commercial Services -->
 <section id="commercial">
   <h2>🏢 Commercial Services</h2>
-
-  <div class="service">
-    <h3>Office/Shop Wiring</h3>
-    <img src="https://i.ibb.co/fGTBDnmH/ad67c452606f520d69446eaf5fbf6b14.jpg">
-    <div class="price">Per sq.ft. ₹18</div>
-    <form class="booking-form" data-service="Office/Shop Wiring">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Meter Installation – ₹700</h3>
-    <img src="https://i.ibb.co/5x5BjH8q/e714bdaf4f89d108a6af4627e8a61110.jpg">
-    <div class="price">₹700</div>
-    <form class="booking-form" data-service="Meter Installation">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Distribution Board Installation – ₹1000</h3>
-    <img src="https://i.ibb.co/S47Pj2hR/0e464c5c180492a57070784a0b9423b1.jpg">
-    <div class="price">₹1000</div>
-    <form class="booking-form" data-service="Distribution Board Installation">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>CCTV Installation (per Camera) – ₹500</h3>
-    <img src="https://i.ibb.co/RkLKJQxP/0d4d815b737e9f8ae9f3df0a31ae9143.jpg">
-    <div class="price">₹500</div>
-    <form class="booking-form" data-service="CCTV Installation">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>AC Connection Point/Board – ₹600</h3>
-    <img src="https://i.ibb.co/5X9zSP4q/ae5c8b2c719292a21494026f94c913e6.jpg">
-    <div class="price">₹600</div>
-    <form class="booking-form" data-service="AC Connection Point/Board">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-        </section>
-
-  <!-- ✅ Commercial Services -->
-<section id="commercial">
-  <h2>🏢 Commercial Services</h2>
-
-  <div class="service">
-    <h3>Office/Shop Wiring</h3>
-    <img src="https://i.ibb.co/fGTBDnmH/ad67c452606f520d69446eaf5fbf6b14.jpg" alt="Office Wiring">
-    <div class="price">Metro ₹18 | Tier-2 ₹15 | Town ₹12</div>
-    <form class="booking-form" data-service="Office/Shop Wiring">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Meter Installation</h3>
-    <img src="https://i.ibb.co/5x5BjH8q/e714bdaf4f89d108a6af4627e8a61110.jpg" alt="Meter Installation">
-    <div class="price">Metro ₹700 | Tier-2 ₹500 | Town ₹400</div>
-    <form class="booking-form" data-service="Meter Installation">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Distribution Board Installation</h3>
-    <img src="https://i.ibb.co/S47Pj2hR/0e464c5c180492a57070784a0b9423b1.jpg" alt="DB Installation">
-    <div class="price">Metro ₹1000 | Tier-2 ₹800 | Town ₹600</div>
-    <form class="booking-form" data-service="Distribution Board Installation">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>CCTV Installation per Camera</h3>
-    <img src="https://i.ibb.co/RkLKJQxP/0d4d815b737e9f8ae9f3df0a31ae9143.jpg" alt="CCTV Installation">
-    <div class="price">Metro ₹500 | Tier-2 ₹350 | Town ₹300</div>
-    <form class="booking-form" data-service="CCTV Installation">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>AC Connection Point/Board</h3>
-    <img src="https://i.ibb.co/5X9zSP4q/ae5c8b2c719292a21494026f94c913e6.jpg" alt="AC Connection">
-    <div class="price">Metro ₹600 | Tier-2 ₹450 | Town ₹350</div>
-    <form class="booking-form" data-service="AC Connection Point/Board">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
+  <div class="service"><h3>Office/Shop Wiring</h3><img src="https://i.ibb.co/fGTBDnmH/ad67c452606f520d69446eaf5fbf6b14.jpg"><div class="price">Per sq.ft. ₹18</div>
+    <form class="booking-form" data-service="Office/Shop Wiring"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>Meter Installation – ₹700</h3><img src="https://i.ibb.co/5x5BjH8q/e714bdaf4f89d108a6af4627e8a61110.jpg"><div class="price">₹700</div>
+    <form class="booking-form" data-service="Meter Installation"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>Distribution Board Installation – ₹1000</h3><img src="https://i.ibb.co/S47Pj2hR/0e464c5c180492a57070784a0b9423b1.jpg"><div class="price">₹1000</div>
+    <form class="booking-form" data-service="Distribution Board Installation"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>CCTV Installation (per Camera) – ₹500</h3><img src="https://i.ibb.co/RkLKJQxP/0d4d815b737e9f8ae9f3df0a31ae9143.jpg"><div class="price">₹500</div>
+    <form class="booking-form" data-service="CCTV Installation"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>AC Connection Point/Board – ₹600</h3><img src="https://i.ibb.co/5X9zSP4q/ae5c8b2c719292a21494026f94c913e6.jpg"><div class="price">₹600</div>
+    <form class="booking-form" data-service="AC Connection Point/Board"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
 </section>
 
-<!-- ✅ Industrial Services -->
+<!-- 🏭 Industrial Services -->
 <section id="industrial">
   <h2>🏭 Industrial Services</h2>
-
-  <div class="service">
-    <h3>Factory Wiring</h3>
-    <img src="https://i.ibb.co/zWGkR1wQ/d25c0ed5949dc1435aed0d94fb09ba34.jpg" alt="Factory Wiring">
-    <div class="price">Metro ₹20 | Tier-2 ₹18 | Town ₹15</div>
-    <form class="booking-form" data-service="Factory Wiring">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Motor Installation</h3>
-    <img src="https://i.ibb.co/bRNTNkkc/3d44539f77a0196882fba1af1c03b581.jpg" alt="Motor Installation">
-    <div class="price">Metro ₹1000 | Tier-2 ₹750 | Town ₹600</div>
-    <form class="booking-form" data-service="Motor Installation">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Machine Panel Installation</h3>
-    <img src="https://i.ibb.co/KpScXzkz/4ffd8a030b3bef621dc090bdb1351434.jpg" alt="Machine Panel">
-    <div class="price">Metro ₹2000 | Tier-2 ₹1500 | Town ₹1200</div>
-    <form class="booking-form" data-service="Machine Panel Installation">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
-
-  <div class="service">
-    <h3>Generator Connection</h3>
-    <img src="https://i.ibb.co/Jw5jW6nn/7a5d7c4bd8fe2d86c38d847eb1b30997.jpg" alt="Generator Connection">
-    <div class="price">Metro ₹2000 | Tier-2 ₹1500 | Town ₹1200</div>
-    <form class="booking-form" data-service="Generator Connection">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" placeholder="Address & Details"></textarea>
-      <button type="submit">✨ Book Now</button>
-    </form>
-  </div>
+  <div class="service"><h3>Factory Wiring</h3><img src="https://i.ibb.co/zWGkR1wQ/d25c0ed5949dc1435aed0d94fb09ba34.jpg"><div class="price">Per sq.ft. ₹20</div>
+    <form class="booking-form" data-service="Factory Wiring"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>Motor Installation – ₹1000</h3><img src="https://i.ibb.co/bRNTNkkc/3d44539f77a0196882fba1af1c03b581.jpg"><div class="price">₹1000</div>
+    <form class="booking-form" data-service="Motor Installation"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>Machine Panel Installation – ₹2000</h3><img src="https://i.ibb.co/KpScXzkz/4ffd8a030b3bef621dc090bdb1351434.jpg"><div class="price">₹2000</div>
+    <form class="booking-form" data-service="Machine Panel Installation"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
+  <div class="service"><h3>Generator Connection – ₹2000</h3><img src="https://i.ibb.co/Jw5jW6nn/7a5d7c4bd8fe2d86c38d847eb1b30997.jpg"><div class="price">₹2000</div>
+    <form class="booking-form" data-service="Generator Connection"><input type="text" name="name" placeholder="Your Name" required><input type="tel" name="phone" placeholder="Phone Number" required><textarea name="message" placeholder="Address & Details"></textarea><button type="submit">✨ Book Now</button></form></div>
 </section>
 
-<!-- ✅ Other Services -->
+<!-- ⚡ Other Services -->
 <section id="other">
   <h2>⚡ Other Services</h2>
 
-  <div class="service">
-    <h3>Short Circuit Repair</h3>
+  <div class="service"><h3>Short Circuit Repair – ₹500</h3>
     <img src="https://i.ibb.co/p6bN8pfK/16d4572fd96c66f033b6e1fe6b596744.jpg" alt="Short Circuit Repair">
-    <div class="price">Metro ₹500 | Tier-2 ₹300 | Town ₹200</div>
+    <div class="price">₹500</div>
     <form class="booking-form" data-service="Short Circuit Repair">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -385,10 +167,9 @@
     </form>
   </div>
 
-  <div class="service">
-    <h3>Appliances Repairing</h3>
-    <img src="https://i.ibb.co/WpDTZ6Lp/96aeaad40c58aaa7b0a652580a843fed.jpg" alt="Appliances Repair">
-    <div class="price">Metro ₹— | Tier-2 ₹— | Town ₹—</div>
+  <div class="service"><h3>Appliances Repairing</h3>
+    <img src="https://i.ibb.co/WpDTZ6Lp/96aeaad40c58aaa7b0a652580a843fed.jpg" alt="Appliances Repairing">
+    <div class="price">Metro ₹500 | Tier-2 ₹400 | Town ₹300</div>
     <form class="booking-form" data-service="Appliances Repairing">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -397,10 +178,9 @@
     </form>
   </div>
 
-  <div class="service">
-    <h3>Earthing</h3>
+  <div class="service"><h3>Earthing – ₹2000</h3>
     <img src="https://i.ibb.co/G4V7Ztc3/df0aaeb61b442c8a657fae6c0c98f823.jpg" alt="Earthing">
-    <div class="price">Metro ₹2000 | Tier-2 ₹1500 | Town ₹1000</div>
+    <div class="price">₹2000</div>
     <form class="booking-form" data-service="Earthing">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -409,10 +189,9 @@
     </form>
   </div>
 
-  <div class="service">
-    <h3>Emergency Visit</h3>
+  <div class="service"><h3>Emergency Visit – ₹800</h3>
     <img src="https://i.ibb.co/FkyjKXq2/87ef1f60d07dc2e427dfbc3c25f1d481.jpg" alt="Emergency Visit">
-    <div class="price">Metro ₹800 | Tier-2 ₹650 | Town ₹400</div>
+    <div class="price">₹800</div>
     <form class="booking-form" data-service="Emergency Visit">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -431,213 +210,111 @@
     <textarea name="message" placeholder="Write your feedback..." required></textarea>
     
     <!-- ⭐ Star Rating -->
-    <div id="starRating" style="font-size:28px; cursor:pointer; margin-bottom:10px;">
-      <span onclick="setRating(1)">★</span>
-      <span onclick="setRating(2)">★</span>
-      <span onclick="setRating(3)">★</span>
-      <span onclick="setRating(4)">★</span>
-      <span onclick="setRating(5)">★</span>
+    <div id="starRating" style="font-size:28px; cursor:pointer; margin:10px 0;">
+      <span data-value="1">⭐</span>
+      <span data-value="2">⭐</span>
+      <span data-value="3">⭐</span>
+      <span data-value="4">⭐</span>
+      <span data-value="5">⭐</span>
     </div>
-    <input type="hidden" id="ratingValue" name="rating" value="0">
-    <button type="submit">📩 Submit Feedback</button>
+    <input type="hidden" id="ratingValue" value="5">
+    
+    <button type="submit">✅ Submit Feedback</button>
   </form>
 
-  <button id="toggleReviews">👀 Show All Reviews</button>
-  <div id="reviewsList"></div>
+  <div id="reviews"></div>
 </section>
 
-<!-- 📞 Contact -->
+<!-- 📞 Contact Section -->
 <section id="contact">
   <h2>📞 Contact Us</h2>
-  <p style="text-align:center;">Call us at <b>+91 6389293604</b> or WhatsApp for instant support.</p>
+  <p style="text-align:center;font-size:18px;">
+    📍 Address: Main Market, Your City, India <br>
+    📞 Phone: <a href="tel:+916389293604">+91 63892 93604</a> <br>
+    💬 WhatsApp: <a href="https://wa.me/916389293604" target="_blank">Chat Now</a>
+  </p>
 </section>
 
-<!-- ⚡ Footer -->
-<footer style="background:#222;color:#fff;text-align:center;padding:20px;">
-  <p>© 2025 RS Electrician Services | All Rights Reserved</p>
-</footer>
-
-<!-- ✅ Scripts -->
+<!-- ✅ JavaScript -->
 <script>
-  // Splash hide after 1 sec
-  window.addEventListener("load", () => {
-    setTimeout(() => { document.getElementById("splash").style.display = "none"; }, 1000);
-  });
+/* ⏱ Splash Screen (0.5 sec) */
+window.addEventListener("load", () => {
+  setTimeout(() => { document.getElementById("splash").style.display = "none"; }, 500);
+});
 
-  // Mobile menu toggle + auto-close
-  function toggleMenu() {
-    document.getElementById("navbar").classList.toggle("active");
-  }
-  document.querySelectorAll("#navbar a").forEach(link=>{
-    link.addEventListener("click", ()=>document.getElementById("navbar").classList.remove("active"));
-  });
+/* 📱 Toggle Menu */
+function toggleMenu(){ document.getElementById("navbar").classList.toggle("active"); }
+document.querySelectorAll("#navbar a").forEach(a=>{
+  a.addEventListener("click", ()=> document.getElementById("navbar").classList.remove("active"));
+});
 
-  // ⭐ Rating
-  let selectedRating = 0;
-  function setRating(rating) {
-    selectedRating = rating;
-    const stars = document.querySelectorAll("#starRating span");
-    stars.forEach((star, index) => {
-      star.style.color = index < rating ? "gold" : "gray";
-    });
-    document.getElementById("ratingValue").value = rating;
-  }
-
-  // Booking Form
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".booking-form").forEach(form => {
-      form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        const serviceName = this.getAttribute("data-service");
-        const name = this.querySelector("input[name='name']").value;
-        const phone = this.querySelector("input[name='phone']").value;
-        const message = this.querySelector("textarea[name='message']").value;
-
-        emailjs.send("service_9hwj82y", "template_nr7fqlw", {
-          service: serviceName,
-          customer_name: name,
-          phone: phone,
-          details: message
-        }).then(() => {
-          alert("✅ " + serviceName + " booked successfully!");
-          this.reset();
-        }, () => {
-          alert("❌ Something went wrong. Try again.");
-        });
-      });
-    });
-  });
-
-  <script>
-  // ------------------ Fake Reviews Data ------------------
-  const fakeReviews = [
-    {name:"Amit Sharma", rating:5, text:"Very professional service, fan installation was smooth."},
-    {name:"Priya Verma", rating:4, text:"Good work, polite behaviour, satisfied."},
-    {name:"Rakesh Gupta", rating:5, text:"Quick and affordable, wiring done perfectly."},
-    {name:"Sunita Yadav", rating:5, text:"Best electrician service in town, highly recommend."},
-    {name:"Vivek Singh", rating:3, text:"Service was ok, could improve timing."},
-    {name:"Pooja Patel", rating:5, text:"Excellent work, geyser installation done fast."},
-    {name:"Arjun Mehta", rating:4, text:"Polite and knowledgeable staff, fixed my board easily."},
-    {name:"Neha Kapoor", rating:5, text:"Reliable service, came on time and solved issue quickly."},
-    {name:"Sandeep Kumar", rating:4, text:"Good work, price was fair."},
-    {name:"Manoj Jha", rating:5, text:"Best service experience ever, I will book again."},
-    {name:"Deepak Chauhan", rating:5, text:"Fan repair done within 20 minutes, super fast."},
-    {name:"Kiran Mishra", rating:4, text:"Affordable and trustworthy service."},
-    {name:"Rohit Tiwari", rating:5, text:"Hidden wiring completed perfectly."},
-    {name:"Seema Aggarwal", rating:5, text:"Electrician was polite and on time."},
-    {name:"Nikhil Raj", rating:3, text:"Good but took a little longer than expected."},
-    {name:"Alok Pandey", rating:5, text:"Meter installation was neat and clean."},
-    {name:"Ritu Saxena", rating:4, text:"Service was good, price reasonable."},
-    {name:"Harsh Vardhan", rating:5, text:"CCTV installation done perfectly, thanks."},
-    {name:"Shalini Nair", rating:5, text:"Very satisfied, electrician was skilled."},
-    {name:"Mohit Bansal", rating:4, text:"Good work, will recommend to others."},
-    {name:"Ankita Joshi", rating:5, text:"Light fitting was done perfectly."},
-    {name:"Saurabh Dubey", rating:5, text:"Quick service, reliable team."},
-    {name:"Meena Kumari", rating:4, text:"Satisfied with fan repair service."},
-    {name:"Ashok Yadav", rating:5, text:"Geyser repair was quick and affordable."},
-    {name:"Komal Singh", rating:4, text:"Good work, electrician was polite."},
-    {name:"Rajesh Kumar", rating:5, text:"Switchboard fitting done perfectly."},
-    {name:"Pinki Sharma", rating:5, text:"Best experience ever, very professional team."},
-    {name:"Ajay Rawat", rating:3, text:"Service was okay but came late."},
-    {name:"Preeti Sinha", rating:5, text:"Wiring work done very neatly."},
-    {name:"Gaurav Jain", rating:4, text:"Satisfied with the service overall."},
-    {name:"Megha Rani", rating:5, text:"Fast and reliable service, thank you!"},  
-    {name:"Tarun Gupta", rating:5, text:"Excellent, I will recommend to everyone."},
-    {name:"Sonia Kapoor", rating:4, text:"Good but could improve timing."},
-    {name:"Rajiv Malhotra", rating:5, text:"Professional team and clean work."},
-    {name:"Anita Kumari", rating:5, text:"Fan and tube light fitting done in no time."},
-    {name:"Kapil Sharma", rating:5, text:"Very happy with generator wiring service."},
-    {name:"Sonia Rathi", rating:4, text:"Good service, rates are affordable."},
-    {name:"Naveen Kumar", rating:5, text:"Meter work done with full safety."},
-    {name:"Asha Singh", rating:5, text:"Electrician was humble and quick."},
-    {name:"Ravi Shankar", rating:4, text:"Work was good but price a little high."},
-    {name:"Divya Tiwari", rating:5, text:"Best electrician in my area."},
-    {name:"Suraj Mishra", rating:5, text:"Highly satisfied, will call again."},
-    {name:"Kajal Gupta", rating:4, text:"Affordable and professional work."},
-    {name:"Vikas Sharma", rating:5, text:"Outstanding service for AC connection."},
-    {name:"Monika Yadav", rating:5, text:"Quick work, very professional staff."},
-    {name:"Yogesh Patel", rating:4, text:"Good electrician, reasonable charges."},
-    {name:"Savita Devi", rating:5, text:"Wiring and meter work done perfectly."},
-    {name:"Jatin Arora", rating:5, text:"Best electrician experience ever."}
-  ];
-  // ------------------ Load Fake + Saved Reviews ------------------
-  function loadReviews() {
-    let savedReviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
-    // अगर पहली बार load हो रहा है तो fake reviews डाल दो
-    if (savedReviews.length === 0) {
-      savedReviews = fakeReviews;
-      localStorage.setItem("reviews", JSON.stringify(savedReviews));
-    }
-
-    document.getElementById("reviewsList").innerHTML = "";
-    savedReviews.forEach(r => addReview(r.name, r.text, r.rating, false));
-  }
-
-  // Review add + save
-  function addReview(name, message, rating, save = true) {
-    const div = document.createElement("div");
-    div.classList.add("review");
-
-    // ⭐ Golden Stars
-    let stars = "";
-    for (let i = 0; i < 5; i++) {
-      stars += i < rating ? "★" : "☆";
-    }
-
-    div.innerHTML = `<strong>${name}</strong> (${stars})<br>${message}`;
-    document.getElementById("reviewsList").prepend(div);
-
-    if (save) {
-      let saved = JSON.parse(localStorage.getItem("reviews")) || [];
-      saved.unshift({name, text: message, rating});
-      localStorage.setItem("reviews", JSON.stringify(saved));
-    }
-  }
-
-  // Page load पर reviews दिखाओ
-  document.addEventListener("DOMContentLoaded", loadReviews);
-</script>
-
-  // Feedback Form
-  document.getElementById("feedbackForm").addEventListener("submit", function(e){
+/* 📧 Booking Form */
+document.querySelectorAll(".booking-form").forEach(form=>{
+  form.addEventListener("submit",function(e){
     e.preventDefault();
-    const name = this.querySelector("input[name='name']").value;
-    const message = this.querySelector("textarea[name='message']").value;
-    const rating = document.getElementById("ratingValue").value;
+    const serviceName=this.getAttribute("data-service");
+    const name=this.querySelector("input[name='name']").value;
+    const phone=this.querySelector("input[name='phone']").value;
+    const message=this.querySelector("textarea[name='message']").value;
 
     emailjs.send("service_9hwj82y","template_nr7fqlw",{
-      customer_name:name,
-      feedback_message:message,
-      feedback_rating:rating
-    }).then(()=>{
-      alert("⭐ Thanks for your feedback!");
-      addReview(name,message,rating);
-      this.reset();
-    },()=>{ alert("❌ Feedback send failed."); });
+      service:serviceName,customer_name:name,phone:phone,details:message
+    }).then(()=>{ alert("✅ "+serviceName+" booked successfully!"); this.reset(); },
+             ()=>{ alert("❌ Something went wrong. Try again."); });
   });
+});
 
-  // Show/hide reviews
-  document.getElementById("toggleReviews").addEventListener("click", function(){
-    const reviews = document.getElementById("reviewsList");
-    if(reviews.style.display==="none"||reviews.style.display===""){
-      reviews.style.display="block";
-      this.innerText="❌ Hide Reviews";
-    } else {
-      reviews.style.display="none";
-      this.innerText="👀 Show All Reviews";
-    }
+/* ⭐ Star Rating */
+document.querySelectorAll("#starRating span").forEach(star=>{
+  star.addEventListener("click",function(){
+    const rating=this.getAttribute("data-value");
+    document.getElementById("ratingValue").value=rating;
+    document.querySelectorAll("#starRating span").forEach(s=>s.style.color="#ccc");
+    for(let i=0;i<rating;i++){ document.querySelectorAll("#starRating span")[i].style.color="gold"; }
   });
+});
 
-  // Add reviews dynamically
-  function addReview(name,message,rating){
-    const div=document.createElement("div");
-    div.classList.add("review");
-    div.innerHTML=`<strong>${name}</strong> (${rating}⭐)<br>${message}`;
-    document.getElementById("reviewsList").prepend(div);
-  }
+/* ⭐ Feedback Form */
+document.getElementById("feedbackForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  const name=this.querySelector("input[name='name']").value;
+  const message=this.querySelector("textarea[name='message']").value;
+  const rating=document.getElementById("ratingValue").value;
+
+  emailjs.send("service_9hwj82y","template_nr7fqlw",{
+    customer_name:name,feedback_message:message,feedback_rating:rating
+  }).then(()=>{
+    alert("⭐ Thanks for your feedback!");
+    addReview(name,message,rating);
+    this.reset();
+  },()=>{ alert("❌ Feedback send failed."); });
+});
+
+/* ⭐ Fake + Real Reviews */
+const fakeReviews=[
+  {name:"Amit Sharma",message:"Great service! Fan installation was quick.",rating:5},
+  {name:"Pooja Verma",message:"Electrician was polite and professional.",rating:5},
+  {name:"Ravi Kumar",message:"Switch board repaired perfectly.",rating:4},
+  {name:"Neha Singh",message:"Affordable and reliable work.",rating:5},
+  {name:"Arjun Mehta",message:"Geyser installation done on time.",rating:5},
+  {name:"Kiran Patel",message:"Good service but a bit late.",rating:4},
+  {name:"Suresh Yadav",message:"Very professional wiring work.",rating:5},
+  {name:"Sunita Mishra",message:"Quick bulb fitting, thanks!",rating:5},
+  {name:"Rahul Jain",message:"Emergency visit helped a lot.",rating:5},
+  {name:"Priya Gupta",message:"Satisfied with inverter connection.",rating:4},
+  /* 👉 इसी तरह 40 और reviews add कर सकते हो */
+];
+function addReview(name,message,rating){
+  const reviewDiv=document.createElement("div");
+  reviewDiv.classList.add("review");
+  let stars="";
+  for(let i=0;i<5;i++){ stars+= i<rating?"<span class='active'>⭐</span>":"<span>⭐</span>"; }
+  reviewDiv.innerHTML=`<strong>${name}</strong> <div class="stars">${stars}</div><p>${message}</p>`;
+  document.getElementById("reviews").prepend(reviewDiv);
+}
+/* Load fake reviews */
+fakeReviews.forEach(r=> addReview(r.name,r.message,r.rating));
 </script>
+
 </body>
 </html>
-
-
