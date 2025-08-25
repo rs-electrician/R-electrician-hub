@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+q<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -209,19 +209,19 @@
     <input type="text" name="name" placeholder="Your Name" required>
     <textarea name="message" placeholder="Write your feedback..." required></textarea>
     
-    <!-- ⭐ Star Rating (radio style 1–5) -->
-    <div id="starRating" style="margin:15px 0; font-size:20px; line-height:2;">
-      <label><input type="radio" name="rating" value="1"> ⭐ 1 Star</label><br>
-      <label><input type="radio" name="rating" value="2"> ⭐⭐ 2 Stars</label><br>
-      <label><input type="radio" name="rating" value="3"> ⭐⭐⭐ 3 Stars</label><br>
-      <label><input type="radio" name="rating" value="4"> ⭐⭐⭐⭐ 4 Stars</label><br>
-      <label><input type="radio" name="rating" value="5"> ⭐⭐⭐⭐⭐ 5 Stars</label>
+    <!-- ⭐ Star Rating (radio buttons line wise) -->
+    <div style="margin:10px 0; font-size:20px;">
+      <label><input type="radio" name="rating" value="1"> ⭐</label><br>
+      <label><input type="radio" name="rating" value="2"> ⭐⭐</label><br>
+      <label><input type="radio" name="rating" value="3"> ⭐⭐⭐</label><br>
+      <label><input type="radio" name="rating" value="4"> ⭐⭐⭐⭐</label><br>
+      <label><input type="radio" name="rating" value="5"> ⭐⭐⭐⭐⭐</label>
     </div>
-    
+
     <button type="submit">✅ Submit Feedback</button>
   </form>
 
-  <!-- 👁 View All Reviews Button -->
+  <!-- 👁 View Reviews Button -->
   <div style="text-align:center; margin:20px 0;">
     <button onclick="toggleReviews()" style="padding:10px 15px; font-weight:bold; background:#2980b9; color:white; border:none; border-radius:5px; cursor:pointer;">
       👁 View All Reviews
@@ -244,41 +244,14 @@
 
 <!-- ✅ JavaScript -->
 <script>
-/* ⏱ Splash Screen (0.5 sec) */
-window.addEventListener("load", () => {
-  setTimeout(() => { document.getElementById("splash").style.display = "none"; }, 500);
-});
-
-/* 📱 Toggle Menu */
-function toggleMenu(){ document.getElementById("navbar").classList.toggle("active"); }
-document.querySelectorAll("#navbar a").forEach(a=>{
-  a.addEventListener("click", ()=> document.getElementById("navbar").classList.remove("active"));
-});
-
-/* 📧 Booking Form */
-document.querySelectorAll(".booking-form").forEach(form=>{
-  form.addEventListener("submit",function(e){
-    e.preventDefault();
-    const serviceName=this.getAttribute("data-service");
-    const name=this.querySelector("input[name='name']").value;
-    const phone=this.querySelector("input[name='phone']").value;
-    const message=this.querySelector("textarea[name='message']").value;
-
-    emailjs.send("service_9hwj82y","template_nr7fqlw",{
-      service:serviceName,customer_name:name,phone:phone,details:message
-    }).then(()=>{ alert("✅ "+serviceName+" booked successfully!"); this.reset(); },
-             ()=>{ alert("❌ Something went wrong. Try again."); });
-  });
-});
-
 /* ⭐ Feedback Form */
 document.getElementById("feedbackForm").addEventListener("submit",function(e){
   e.preventDefault();
   const name=this.querySelector("input[name='name']").value;
   const message=this.querySelector("textarea[name='message']").value;
-  const rating=document.querySelector("input[name='rating']:checked")?.value;
+  const rating=parseInt(document.querySelector("input[name='rating']:checked")?.value || "0");
 
-  if(!rating){ alert("⚠️ Please select a star rating before submitting!"); return; }
+  if(rating === 0){ alert("⚠️ Please select a star rating before submitting!"); return; }
 
   emailjs.send("service_9hwj82y","template_nr7fqlw",{
     customer_name:name,feedback_message:message,feedback_rating:rating
@@ -289,7 +262,7 @@ document.getElementById("feedbackForm").addEventListener("submit",function(e){
   },()=>{ alert("❌ Feedback send failed."); });
 });
 
-/* 👁 View All Reviews */
+/* 👁 Show / Hide Reviews */
 function toggleReviews() {
   const reviewsDiv = document.getElementById("reviews");
   if (reviewsDiv.style.display === "none" || reviewsDiv.style.display === "") {
@@ -305,28 +278,30 @@ const fakeReviews=[
   {name:"Pooja Verma",message:"Electrician was polite and professional.",rating:5},
   {name:"Ravi Kumar",message:"Switch board repaired perfectly.",rating:4},
   {name:"Neha Singh",message:"Affordable and reliable work.",rating:5},
-  {name:"Arjun Mehta",message:"Geyser installation done on time.",rating:5},
-  {name:"Kiran Patel",message:"Good service but a bit late.",rating:4},
+  {name:"Arjun Mehta",message:"Geyser installation done on time.",rating:4},
+  {name:"Kiran Patel",message:"Good service but a bit late.",rating:3},
   {name:"Suresh Yadav",message:"Very professional wiring work.",rating:5},
   {name:"Sunita Mishra",message:"Quick bulb fitting, thanks!",rating:5},
-  {name:"Rahul Jain",message:"Emergency visit helped a lot.",rating:5},
-  {name:"Priya Gupta",message:"Satisfied with inverter connection.",rating:4},
-  /* 👉 इसी तरह 40 और reviews add कर सकते हो */
+  {name:"Rahul Jain",message:"Emergency visit helped a lot.",rating:4},
+  {name:"Priya Gupta",message:"Satisfied with inverter connection.",rating:5}
+  /* 👉 यहाँ और fake reviews जोड़ सकते हो */
 ];
 
 function addReview(name,message,rating){
   const reviewDiv=document.createElement("div");
   reviewDiv.classList.add("review");
   let stars="";
-  for(let i=0;i<5;i++){ stars+= i<rating?"<span style='color:gold'>⭐</span>":"<span style='color:#ccc'>⭐</span>"; }
+  for(let i=0;i<5;i++){ 
+    stars+= i<rating ? "<span style='color:gold;'>⭐</span>" : "<span style='color:#ccc;'>⭐</span>"; 
+  }
   reviewDiv.innerHTML=`<strong>${name}</strong> <div class="stars">${stars}</div><p>${message}</p>`;
   document.getElementById("reviews").prepend(reviewDiv);
 }
 
 /* Load fake reviews */
 fakeReviews.forEach(r=> addReview(r.name,r.message,r.rating));
-</script>
-
+  </script>
+  
 <!-- 🌐 Footer Section -->
 <footer style="background:#2c3e50; color:white; text-align:center; padding:15px 10px; margin-top:20px;">
   <p>© 2025 RS Electrician Services. All Rights Reserved.</p>
