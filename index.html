@@ -1,4 +1,4 @@
-q<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -202,20 +202,19 @@ q<!DOCTYPE html>
   </div>
 </section>
 
-<!-- ⭐ Feedback Section -->
 <section id="feedback">
   <h2>⭐ Customer Feedback</h2>
   <form id="feedbackForm">
     <input type="text" name="name" placeholder="Your Name" required>
     <textarea name="message" placeholder="Write your feedback..." required></textarea>
     
-    <!-- ⭐ Star Rating (choosable in rows) -->
-    <div id="starRating" style="font-size:22px; cursor:pointer; margin:10px 0; line-height:2;">
-      <div><span data-value="1">⭐</span></div>
-      <div><span data-value="2">⭐⭐</span></div>
-      <div><span data-value="3">⭐⭐⭐</span></div>
-      <div><span data-value="4">⭐⭐⭐⭐</span></div>
-      <div><span data-value="5">⭐⭐⭐⭐⭐</span></div>
+    <!-- ⭐ Star Rating (fixed single row clickable) -->
+    <div id="starRating" style="font-size:22px; cursor:pointer; margin:10px 0;">
+      <span data-value="1">⭐</span>
+      <span data-value="2">⭐</span>
+      <span data-value="3">⭐</span>
+      <span data-value="4">⭐</span>
+      <span data-value="5">⭐</span>
     </div>
     <input type="hidden" id="ratingValue" value="0"> <!-- default 0, must choose -->
 
@@ -249,6 +248,23 @@ q<!DOCTYPE html>
   <p>© 2025 RS Electrician Services. All Rights Reserved.</p>
   <p>🔌 Fast • Affordable • Reliable</p>
 </footer>
+
+<!-- ⭐ Extra CSS for stars -->
+<style>
+  #starRating span {
+    font-size: 26px;
+    color: #ccc;
+    transition: 0.3s;
+  }
+  #starRating span.active {
+    color: gold;
+  }
+  .review { 
+    border-bottom: 1px solid #ddd; 
+    padding: 10px 0; 
+  }
+  .review strong { font-size: 16px; }
+</style>
 
 <!-- ✅ Scripts (Always last me rakho) -->
 <script>
@@ -284,13 +300,19 @@ document.querySelectorAll(".booking-form").forEach(form=>{
   });
 });
 
-/* ⭐ Star Rating */
+/* ⭐ Star Rating Fix */
 document.querySelectorAll("#starRating span").forEach(star=>{
   star.addEventListener("click",function(){
     const rating=this.getAttribute("data-value");
     document.getElementById("ratingValue").value=rating;
-    document.querySelectorAll("#starRating span").forEach(s=>s.style.color="#ccc");
-    for(let i=0;i<rating;i++){ document.querySelectorAll("#starRating span")[i].style.color="gold"; }
+
+    // sabko reset karo
+    document.querySelectorAll("#starRating span").forEach(s=>s.classList.remove("active"));
+
+    // jitne star select hue unko gold karo
+    for(let i=0;i<rating;i++){
+      document.querySelectorAll("#starRating span")[i].classList.add("active");
+    }
   });
 });
 
@@ -310,7 +332,7 @@ document.getElementById("feedbackForm").addEventListener("submit",function(e){
     addReview(name,message,rating);
     this.reset();
     document.getElementById("ratingValue").value=0;
-    document.querySelectorAll("#starRating span").forEach(s=>s.style.color="#ccc");
+    document.querySelectorAll("#starRating span").forEach(s=>s.classList.remove("active"));
   },()=>{ alert("❌ Feedback send failed."); });
 });
 
@@ -336,14 +358,16 @@ const fakeReviews=[
   {name:"Sunita Mishra",message:"Quick bulb fitting, thanks!",rating:5},
   {name:"Rahul Jain",message:"Emergency visit helped a lot.",rating:5},
   {name:"Priya Gupta",message:"Satisfied with inverter connection.",rating:4}
-  // 👉 बाकी reviews भी इसी format me add kar lena
 ];
 
+/* ⭐ Add Review Function */
 function addReview(name,message,rating){
   const reviewDiv=document.createElement("div");
   reviewDiv.classList.add("review");
   let stars="";
-  for(let i=0;i<5;i++){ stars+= i<rating?"<span class='active'>⭐</span>":"<span>⭐</span>"; }
+  for(let i=0;i<5;i++){ 
+    stars+= i<rating ? "<span style='color:gold;'>⭐</span>" : "<span style='color:#ccc;'>⭐</span>"; 
+  }
   reviewDiv.innerHTML=`<strong>${name}</strong> <div class="stars">${stars}</div><p>${message}</p>`;
   document.getElementById("reviews").prepend(reviewDiv);
 }
